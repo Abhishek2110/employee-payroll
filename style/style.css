@@ -1,0 +1,168 @@
+body {
+    background-color: rgb(228, 228, 228);
+    margin: 0;
+}
+
+.topnav {
+    background-color: white;
+    overflow: hidden;
+    width: 100%;
+    height: 78px;
+}
+
+.logo {
+    width: auto; 
+    height: 100%;
+    margin-left: 150px; 
+}
+
+#form {
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    padding: 20px;
+    width: 50%;
+    margin: 20px auto;
+    padding-left: 230px;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+}
+
+.container-left {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    height: 60vh;
+}
+
+.container-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-around;
+    padding-left: 30px;
+}
+
+#name{
+    margin-bottom: 28px;
+    margin-top: 8px;
+    width: 9cm;
+    height: 30px;
+}
+
+.profile-flex {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 5px;
+    width: 77%;
+}
+
+.small-rounded-image {
+    width: 30px; 
+    height: 30px; 
+    border-radius: 50%; 
+}
+
+.gender-flex{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 40px;
+    margin-top: 28px;
+    width: 40%;
+}
+
+.dept-flex{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 1px;
+    width: 110%;
+}
+
+.salary-flex{
+    display: flex;
+    flex-direction: row;
+    margin-top: 30px;
+}
+
+#salary{
+    height: 30px;    
+}
+
+.date-flex{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    width: 80%;
+}
+
+#day{
+    width: 200%;
+    height: 30px;
+}
+
+#month{
+    margin-left: 30px;
+    width: 85%;
+    height: 30px;
+}
+
+#year{
+    width: 190%;
+    height: 30px;
+} 
+
+.buttons{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-top: 30px;
+}
+
+.cancel-button{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-right: 95px;
+}
+
+.submit-reset-button{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 25%;
+    margin-right: 1px;
+}
+
+#cancel{
+    height: 30px;
+    width: 135px;
+}
+
+#submit{
+    height: 30px;
+    width: 340px;
+    margin-right: 10px;
+}
+
+#reset{
+    height: 30px;
+    width: 340px;
+}
+
