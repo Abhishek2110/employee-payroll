@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Employee Payroll Form</title>
-    <link rel="stylesheet" href="../style/form.css">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Employee Payroll Form</title>
+        <link rel="stylesheet" href="../style/form.css">
+        <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
 </head>
 <body>
     <div class="topnav">
@@ -49,23 +50,23 @@
                 <div class="dept-flex">
                     <div>
                         <input type="checkbox" id="dept1">
-                        <label for="dept">HR</label>
+                        <label for="dept" id="dept1">HR</label>
                     </div>
                     <div>
                         <input type="checkbox" id="dept2">
-                        <label for="dept">Sales</label>
+                        <label for="dept" id="dept2">Sales</label>
                     </div>
                     <div>
                         <input type="checkbox" id="dept3">
-                        <label for="dept">Finance</label>
+                        <label for="dept" id="dept3">Finance</label>
                     </div>
                     <div>
                         <input type="checkbox" id="dept4">
-                        <label for="dept">Engineer</label>
+                        <label for="dept" id="dept4">Engineer</label>
                     </div>
                     <div>
                         <input type="checkbox" id="dept5">
-                        <label for="dept">Others</label>
+                        <label for="dept" id="dept5">Others</label>
                     </div>
                 </div>
                 <div class="salary-flex">
@@ -121,7 +122,7 @@
         </div>
         <div class="submit-clear-button">
             <button id="submit">Submit</button>
-            <button id="clear">Clear</button>
+            <button id="clear">Reset</button>
         </div>
     </div>
     </form>
