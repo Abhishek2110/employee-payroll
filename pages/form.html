@@ -11,92 +11,85 @@
         <img src="../assets/logo.png" alt="Logo" class="logo">
     </div>
     <div id="form">
-    <form>
-
+    <form id="Employee-Payroll">
         <h2>Employee Payroll Form</h2>
-
-    <div class="container">
-        <div class="container-left">
-            <label for="name">Name</label>
-            <label for="profile-image">Profile image</label>
-            <label for="gender">Gender</label>
-            <label for="dept">Department</label>
-            <label for="salary">Salary</label>
-            <label for="day">Start Date</label>
-            <label for="notes">Notes</label>
-        </div>
-        <div class="container-right">
-            <input type="text" id="name">
-            <div class="profile-flex">
-                <input type="radio" id="pic1" name="profile-pic">
-                <img src="../assets/option 1.jpg" alt="404 not found" class="small-rounded-image">
-                <input type="radio" id="pic2" name="profile-pic">
-                <img src="../assets/option 2.jpg" alt="404 not found" class="small-rounded-image">
-                <input type="radio" id="pic3" name="profile-pic">
-                <img src="../assets/option 3.jpg" alt="404 not found" class="small-rounded-image">
-                <input type="radio" id="pic4" name="profile-pic">
-                <img src="../assets/option 4.jpg" alt="404 not found" class="small-rounded-image" id="opt4">
+        <div class="container">
+            <div class="container-left">
+                <label for="name">Name</label>
+                <label for="profile-image">Profile image</label>
+                <label for="gender">Gender</label>
+                <label for="dept">Department</label>
+                <label for="salary">Salary</label>
+                <label for="day">Start Date</label>
+                <label for="notes">Notes</label>
             </div>
-            <div class="gender-flex">
-                <div>
-                    <input type="radio" id="male" name="gender">
-                    <label for="gender">Male</label>
+            <div class="container-right">
+                <input type="text" id="name">
+                <div class="profile-flex">
+                    <input type="radio" id="pic1" class="pic" name="profile-pic">
+                    <img src="../assets/option 1.jpg" alt="404 not found" class="small-rounded-image">
+                    <input type="radio" id="pic2" class="pic" name="profile-pic">
+                    <img src="../assets/option 2.jpg" alt="404 not found" class="small-rounded-image">
+                    <input type="radio" id="pic3" class="pic" name="profile-pic">
+                    <img src="../assets/option 3.jpg" alt="404 not found" class="small-rounded-image">
+                    <input type="radio" id="pic4" class="pic" name="profile-pic">
+                    <img src="../assets/option 4.jpg" alt="404 not found" class="small-rounded-image" id="opt4">
+                </div>
+                <div class="gender-flex">
+                    <div>
+                        <input type="radio" id="male" class="gender" name="male">
+                        <label for="gender">Male</label>
 
+                    </div>
+                    <div>
+                        <input type="radio" id="Female" class="gender" name="female">
+                        <label for="gender">Female</label>
+                    </div>
                 </div>
-                <div>
-                    <input type="radio" id="Female" name="gender">
-                    <label for="gender">Female</label>
+                <div class="dept-flex">
+                    <div>
+                        <input type="checkbox" id="dept1">
+                        <label for="dept">HR</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="dept2">
+                        <label for="dept">Sales</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="dept3">
+                        <label for="dept">Finance</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="dept4">
+                        <label for="dept">Engineer</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="dept5">
+                        <label for="dept">Others</label>
+                    </div>
                 </div>
-            </div>
-            <div class="dept-flex">
-                <div>
-                    <input type="checkbox" id="department">
-                    <label for="dept">HR</label>
-
-                </div>
-                <div>
-                    <input type="checkbox" id="dept">
-                    <label for="dept">Sales</label>
-                    
-                </div>
-                <div>
-                    <input type="checkbox" id="dept">
-                    <label for="dept">Finance</label>
-
-                </div>
-                <div>
-                    <input type="checkbox" id="dept">
-                    <label for="dept">Engineer</label>
-
-                </div>
-                <div>
-                    <input type="checkbox" id="dept">
-                    <label for="dept">Others</label><br>
-
-                </div>
-            </div>
-            <div class="salary-flex">
-                <select name="salary" id="salary">
-                    <option value="Salary">Select Salary</option>
-                    <option value="Salary">Less than 1 lakh</option>
-                    <option value="Salary">Between 1 lakh and 5 lakhs</option>
-                    <option value="Salary">Between 5 lakhs and 10 lakhs</option>
-                    <option value="Salary">More than 10 lakhs</option>
-                </select>
-            </div>
-            <div class="date-flex">
-                <div>
-                    <select name="day" id="day">
-                        <option value="Day">Day</option>
-                        <script>
-                            for (let i = 1; i <= 31; i++) {
-                                document.write(`<option value="${i}">${i}</option>`);
-                            }
-                        </script>
+                <div class="salary-flex">
+                    <select name="salary" id="salary">
+                        <option value="Salary">Select Salary</option>
+                        <option value="Salary">Less than 1 lakh</option>
+                        <option value="Salary">Between 1 lakh and 5 lakhs</option>
+                        <option value="Salary">Between 5 lakhs and 10 lakhs</option>
+                        <option value="Salary">More than 10 lakhs</option>
                     </select>
                 </div>
+                <div class="date-flex">
+                    <div>
+                        <select name="day" id="day" class="date">
+                            <option value="Day">Day</option>
+                            <script>
+                                for (let i = 1; i <= 31; i++) {
+                                    document.write(`<option value="${i}">${i}</option>`);
+                                }
+                            </script>
+                        </select>
+                    </div>
                 <div>
-                    <select name="month" id="month">
+                    <select name="month" id="month" class="date">
                         <option value="Month">Month</option>
                         <script>
                             const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
@@ -107,7 +100,7 @@
                     </select>
                 </div>
                 <div>
-                    <select name="year" id="year">
+                    <select name="year" id="year" class="date">
                         <option value="Year">Year</option>
                         <script>
                             const currentYear = new Date().getFullYear();
@@ -119,30 +112,20 @@
                     </select>
                 </div>
             </div>
-            <textarea name="notes" id="" cols="40" rows="5"></textarea>
-           
+            <textarea name="notes" id="notes" cols="40" rows="5"></textarea>
         </div>
     </div>
     <div class="buttons">
         <div class="cancel-button">
             <button id="cancel">Cancel</button>
-
         </div>
-        <div class="submit-reset-button">
+        <div class="submit-clear-button">
             <button id="submit">Submit</button>
-            <button id="reset">Reset</button>
-
+            <button id="clear">Clear</button>
         </div>
     </div>
     </form>
 </div>
+<script src="../script/script.js"></script>
 </body>
 </html>
-
-
-
-
-
-                    
-
-

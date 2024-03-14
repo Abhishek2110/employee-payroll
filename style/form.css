@@ -141,7 +141,7 @@ body {
     margin-right: 95px;
 }
 
-.submit-reset-button{
+.submit-clear-button{
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
@@ -155,14 +155,25 @@ body {
     width: 135px;
 }
 
+#cancel:hover{
+    cursor: pointer;
+}
+
 #submit{
     height: 30px;
     width: 340px;
     margin-right: 10px;
 }
 
-#reset{
+#submit:hover{
+    cursor: pointer;
+}
+
+#clear{
     height: 30px;
     width: 340px;
 }
 
+#clear:hover{
+    cursor: pointer;
+}
