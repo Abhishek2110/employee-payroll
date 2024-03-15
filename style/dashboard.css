@@ -17,13 +17,13 @@ body {
 .logo {
     width: auto; 
     height: 100%;
-    margin-left: 90px; 
+    margin-left: 60px; 
 }
 
 #dashboard {
     display: flex;
     justify-content: space-between;
-    margin-left: 100px; 
+    margin-left: 72px; 
     margin-right: 40px;
 }
 
@@ -31,7 +31,16 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+#head{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
     margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 #search-button {
@@ -47,7 +56,7 @@ body {
 }
 
 #add-button {
-    margin-right: 57.5px;
+    margin-right: 30px;
     background-color: #82a70c;
     color: white;
     border-radius: 5%;
@@ -76,10 +85,11 @@ table {
 thead th {
     color: white;
     background-color: #3d3d3d;
+    text-align: center;
     padding-top: 20px;
     padding-bottom: 20px;
-    padding-left: 65px;
-    padding-right: 65px;
+    padding-left: 55px;
+    padding-right: 55px;
     margin: 0;
 }
 
@@ -87,45 +97,71 @@ td{
     text-align: center;
 }
 
-td img{
+/* td img{
     vertical-align: middle;
     border-radius: 50%;
     margin-left: 10px;
+} */
+
+.profile-pic{
+    vertical-align: middle;
+    border-radius: 50%;
+    margin-left: 90px;
 }
 
-td span{
+/* .name-image{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: baseline;
+} */
+/* td span{
+    vertical-align: middle;
+    margin-left: 20px;
+} */
+
+.employee-name{
+    justify-self: start;
+    align-items: start;
     vertical-align: middle;
     margin-left: 20px;
 }
 
 span {
     vertical-align: middle;
-    margin-right: 25px;    
+    padding-right: 25px;    
 }
 
 .fa{
     vertical-align: middle;
 }
 
-#dept1{
+/* #dept1{
     background-color: #e9fea5;
     margin: 2px;
     margin-right: 1px;
     padding: 0;
     border-radius: 15%;
-}
+} */
 
-#dept2{
+/* #dept2{
     background-color: #e9fea5;
     margin: 2px;
     padding: 0;
     border-radius: 15%;
-}
+} */
 
-#dept3{
+/* #dept3{
     background-color: #e9fea5;
     margin: 2px;
     margin-left: 5px;
+    padding: 0;
+    border-radius: 15%;
+} */
+
+span.dept{
+    background-color: #e9fea5;
+    margin: 2px;
     padding: 0;
     border-radius: 15%;
 }

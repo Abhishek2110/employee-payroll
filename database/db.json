@@ -1,0 +1,121 @@
+{
+  "user": [
+    {
+      "id": "02b2",
+      "Name": "Abhishek",
+      "Notes": "bjcakkbj",
+      "Gender": "male",
+      "Department": [
+        "HR",
+        "Finance",
+        "Engineer"
+      ],
+      "Salary": "Salary",
+      "Start_Date": "4/4/1926",
+      "Profile": "pic1"
+    },
+    {
+      "id": "dbe8",
+      "Name": "kush",
+      "Notes": "yes",
+      "Gender": "male",
+      "Department": [
+        "HR",
+        "Finance"
+      ],
+      "Salary": "Salary",
+      "Start_Date": "6/8/2020",
+      "Profile": "pic1"
+    },
+    {
+      "id": "4a9e",
+      "Name": "joshi",
+      "Notes": "dwxshijbk",
+      "Gender": "male",
+      "Department": [
+        "Engineer"
+      ],
+      "Salary": "Salary",
+      "Start_Date": "25/5/2020",
+      "Profile": "pic2"
+    },
+    {
+      "id": "33cc",
+      "Name": "Aryaman",
+      "Notes": "njXS",
+      "Gender": "male",
+      "Department": [
+        "HR"
+      ],
+      "Salary": "Between 1 lakh and 5 lakhs",
+      "Start_Date": "2/3/2019",
+      "Profile": ""
+    },
+    {
+      "id": "7e7c",
+      "Name": "Mayank",
+      "Notes": "acvb",
+      "Gender": "Male",
+      "Department": [
+        "HR",
+        "Finance"
+      ],
+      "Salary": "40000",
+      "Start_Date": "4/12/2023",
+      "Profile": "pic3"
+    },
+    {
+      "id": "7283",
+      "Name": "kush",
+      "Notes": "dwa",
+      "Gender": "Male",
+      "Department": [
+        "HR",
+        "Finance"
+      ],
+      "Salary": "50000",
+      "Start_Date": "3/9/2017",
+      "Profile": "pic2"
+    },
+    {
+      "id": "a5b1",
+      "Name": "Devshree",
+      "Notes": "vsvd",
+      "Gender": "Female",
+      "Department": [
+        "HR",
+        "Finance"
+      ],
+      "Salary": "Between 50k and 100k",
+      "Start_Date": "5/6/2020",
+      "Profile": "pic4"
+    },
+    {
+      "id": "87db",
+      "Name": "Manu",
+      "Notes": "cwas",
+      "Gender": "Male",
+      "Department": [
+        "HR",
+        "Finance",
+        "Engineer"
+      ],
+      "Salary": "20000",
+      "Start_Date": "3/12/2021",
+      "Profile": "pic3"
+    },
+    {
+      "id": "ae77",
+      "Name": "Mayank",
+      "Notes": "axcfe",
+      "Gender": "Male",
+      "Department": [
+        "HR",
+        "Finance"
+      ],
+      "Salary": "50000",
+      "Start_Date": "29/7/2018",
+      "Profile": "pic2"
+    }
+  ]
+}

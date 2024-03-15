@@ -15,7 +15,6 @@ function register_employee() {
     let name = document.getElementById("name").value;
     let notes = document.getElementById("notes").value;
     let date = getDate(); // Call a function to get the selected date
-    let gender = getGender(); // Call a function to get the selected gender
     let salary = document.getElementById("salary").value;
     let profile = getProfile(); // Call a function to get the selected profile
     
@@ -28,7 +27,7 @@ function register_employee() {
     const obj = {
         Name: name,
         Notes: notes,
-        Gender: gender ? "male" : "female",
+        Gender: getGender(),
         Department: [],
         Salary: salary,
         Start_Date: date,
@@ -68,8 +67,16 @@ function getDate() {
 
 function getGender() {
     let male = document.getElementById("male").checked;
-    let female = document.getElementById("Female").checked;
-    return male ? "male" : (female ? "female" : "");
+    let female = document.getElementById("female").checked;
+    if (male){
+        return "Male";
+    }
+    else if (female){
+        return "Female";
+    }
+    else{
+        return "";
+    }
 }
 
 function getProfile() {
