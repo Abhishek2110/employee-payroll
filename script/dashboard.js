@@ -7,16 +7,29 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(response => response.json())
         .then(data => {
             const userData = document.getElementById('user-table');
-            const sampleRow = userData.querySelector('tr'); // Get a sample row for cloning
             data.forEach(user => {
-                const row = sampleRow.cloneNode(true); // Clone the sample row
-                row.querySelector('td:nth-child(1)').textContent = user.name; // Fill in user data
-                row.querySelector('td:nth-child(2)').textContent = user.gender;
-                row.querySelector('td:nth-child(3)').textContent = user.Departments;
-                row.querySelector('td:nth-child(4)').textContent = user.Salary;
-                row.querySelector('td:nth-child(5)').textContent = user.StartDate;
-                userData.appendChild(row); // Append the modified row
+                const newRow = createTableRow(user); // Create a new row for each user
+                userData.appendChild(newRow); // Append the new row to the table
             });
         })
         .catch(error => console.error('Error fetching data:', error));
 });
+
+function createTableRow(user) {
+    const row = document.createElement('tr');
+
+    // Fill in the cells with user data
+    row.innerHTML = `
+        <td>${user.name}</td>
+        <td>${user.gender}</td>
+        <td>${user.Departments}</td>
+        <td>${user.Salary}</td>
+        <td>${user.StartDate}</td>
+        <td>
+            <button class="delete"><i class="material-icons">&#xe872;</i></button>
+            <button class="edit"><i class="fa">&#xf044;</i></button>
+        </td>
+    `;
+
+    return row;
+}
