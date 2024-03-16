@@ -17,14 +17,14 @@ body {
 .logo {
     width: auto; 
     height: 100%;
-    margin-left: 60px; 
+    margin-left: 83px; 
 }
 
 #dashboard {
     display: flex;
     justify-content: space-between;
-    margin-left: 72px; 
-    margin-right: 40px;
+    margin-left: 95px; 
+    margin-right: 65px;
 }
 
 #buttons {
@@ -52,7 +52,17 @@ body {
 
 #search-button:hover{
     cursor: pointer;
-    background-color: grey;
+    background-color:wheat;
+    width: 200px;
+    transition: width 0.3s ease;
+}
+
+#search-input{
+    margin-right: 20px;
+    border-radius: 15%;
+    width: 300px;
+    height: 45px;
+    border: none;
 }
 
 #add-button {
@@ -97,28 +107,11 @@ td{
     text-align: center;
 }
 
-/* td img{
-    vertical-align: middle;
-    border-radius: 50%;
-    margin-left: 10px;
-} */
-
 .profile-pic{
     vertical-align: middle;
     border-radius: 50%;
     margin-left: 90px;
 }
-
-/* .name-image{
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: baseline;
-} */
-/* td span{
-    vertical-align: middle;
-    margin-left: 20px;
-} */
 
 .employee-name{
     justify-self: start;
@@ -135,29 +128,6 @@ span {
 .fa{
     vertical-align: middle;
 }
-
-/* #dept1{
-    background-color: #e9fea5;
-    margin: 2px;
-    margin-right: 1px;
-    padding: 0;
-    border-radius: 15%;
-} */
-
-/* #dept2{
-    background-color: #e9fea5;
-    margin: 2px;
-    padding: 0;
-    border-radius: 15%;
-} */
-
-/* #dept3{
-    background-color: #e9fea5;
-    margin: 2px;
-    margin-left: 5px;
-    padding: 0;
-    border-radius: 15%;
-} */
 
 span.dept{
     background-color: #e9fea5;

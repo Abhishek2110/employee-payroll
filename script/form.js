@@ -1,6 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
     const nameInput = document.getElementById('name');
-    
     nameInput.addEventListener('blur', function() {
         const name = this.value.trim();
         const nameRegex = /^[a-zA-Z\s]{3,}$/;
@@ -9,20 +8,71 @@ document.addEventListener('DOMContentLoaded', function() {
             alert('Name is incorrect. Please enter at least 3 alphabetical characters.');
         }
     });
+    
+    const urlParams = new URLSearchParams(window.location.search);
+    const userId = urlParams.get('id');
+    if (userId) {
+        fetchUserDetails(userId);
+    }
+
+    document.getElementById("clear").addEventListener("click", function(event) {
+        event.preventDefault();
+        document.getElementById("Employee-Payroll").reset();
+    });
+
+    document.getElementById("cancel").addEventListener("click", function(event) {
+        event.preventDefault();
+        window.location.href = "../pages/dashboard.html";
+    });
 });
+
+function fetchUserDetails(userId) {
+    const xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+            if (xhr.status === 200) {
+                const user = JSON.parse(xhr.responseText);
+                console.log(user);
+                populateFormFields(user);
+            }
+            else {
+                console.error('Error fetching user details:', xhr.status);
+            }
+        }
+    };
+    xhr.open('GET', `http://localhost:3000/user/?id=${userId}`, true);
+    xhr.send();
+}
+
+function populateFormFields(user) {
+    const userData = user[0];
+    document.getElementById("name").value = userData.Name;
+    document.getElementById("notes").value = userData.Notes;
+    document.getElementById("salary").value = userData.Salary;
+    document.getElementById(userData.Gender.toLowerCase()).checked = true;
+    userData.Department.forEach(dept => {
+        document.getElementById(dept.toLowerCase()).checked = true;
+    });
+    document.getElementById(userData.Profile).checked = true;
+    const [day, month, year] = userData.Start_Date.split('/');
+    document.getElementById("day").value = day;
+    document.getElementById("month").value = month;
+    document.getElementById("year").value = year;
+    document.getElementById('submit').innerText = 'Update';
+}
 
 function register_employee() {
     let name = document.getElementById("name").value;
     let notes = document.getElementById("notes").value;
-    let date = getDate(); // Call a function to get the selected date
+    let date = getDate();
     let salary = document.getElementById("salary").value;
-    let profile = getProfile(); // Call a function to get the selected profile
+    let profile = getProfile();
     
-    let dept1 = document.getElementById("dept1").checked;
-    let dept2 = document.getElementById("dept2").checked;
-    let dept3 = document.getElementById("dept3").checked;
-    let dept4 = document.getElementById("dept4").checked;
-    let dept5 = document.getElementById("dept5").checked;
+    let hr = document.getElementById("hr").checked;
+    let sales = document.getElementById("sales").checked;
+    let finance = document.getElementById("finance").checked;
+    let engineer = document.getElementById("engineer").checked;
+    let others = document.getElementById("others").checked;
     
     const obj = {
         Name: name,
@@ -35,27 +85,63 @@ function register_employee() {
     }
     
     let dept_values = []
-    if (dept1){
+    if (hr){
         dept_values.push("HR")
     }
-    if (dept2){
+    if (sales){
         dept_values.push("Sales")
     }
-    if (dept3){
+    if (finance){
         dept_values.push("Finance")
     }
-    if (dept4){
+    if (engineer){
         dept_values.push("Engineer")
     }
-    if (dept5){
+    if (others){
         dept_values.push("Others")
     }
     obj.Department = dept_values;
-    var xhr = new XMLHttpRequest();
-    xhr.open('POST', 'http://localhost:3000/user');
-    xhr.setRequestHeader('Content-Type', 'application/json');
-    xhr.send(JSON.stringify(obj));
-    console.log(obj);
+
+    if (document.getElementById('submit').innerText === 'Update') {
+        const userId = getUserIdFromUrl();
+        var xhr = new XMLHttpRequest();
+        xhr.open('PUT', `http://localhost:3000/user/${userId}`);
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.send(JSON.stringify(obj));
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+                if (xhr.status === 200) {
+                    window.location.href = '../pages/dashboard.html';
+                    alert("Data Updated Successfully!"); 
+                    console.log(xhr.status);
+                } else {
+                    console.error('Error updating user details:', xhr.status);
+                }
+            }
+        };
+    } else {
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', 'http://localhost:3000/user');
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.send(JSON.stringify(obj));
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+                if (xhr.status === 201) {
+                    console.log('Data added successfully:', xhr.responseText);
+                    console.log(xhr.status);
+                    alert("Form Submitted Successfully!");
+                    document.getElementById("Employee-Payroll").reset();
+                } else {
+                    console.error('Error adding user:', xhr.status);
+                }
+            }
+        };
+    }
+}
+
+function getUserIdFromUrl() {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get('id');
 }
 
 function getDate() {
@@ -93,86 +179,13 @@ document.getElementById("submit").addEventListener("click", function(event) {
     event.preventDefault();
     register_employee();
     document.getElementById("Employee-Payroll").reset();
-    alert("Form Submitted Successfully!");
 });
 
-// Using jQuery DOM Manipulation
-// $(document).ready(function() {
-//     $('#name').on('blur', function() {
-//         const name = $(this).val().trim();
-//         const nameRegex = /^[a-zA-Z\s]{3,}$/;
-
-//         if (!nameRegex.test(name)) {
-//             alert('Name is incorrect. Please enter at least 3 alphabetical characters.');
-//         }
-//     });
-
-//     $('#submit').on('click', function(event) {
-//         event.preventDefault();
-//         register_employee();
-//         $('#Employee-Payroll')[0].reset();
-//         alert('Form Submitted Successfully!');
-//     });
-// });
-
-// function register_employee() {
-//     let name = $('#name').val();
-//     let notes = $('#notes').val();
-//     let date = getDate(); // Call a function to get the selected date
-//     let gender = getGender(); // Call a function to get the selected gender
-//     let salary = $('#salary').val();
-//     let profile = getProfile(); // Call a function to get the selected profile
-
-//     let dept_values = [];
-//     if ($('#dept1').is(':checked')) {
-//         dept_values.push("HR");
-//     }
-//     if ($('#dept2').is(':checked')) {
-//         dept_values.push("Sales");
-//     }
-//     if ($('#dept3').is(':checked')) {
-//         dept_values.push("Finance");
-//     }
-//     if ($('#dept4').is(':checked')) {
-//         dept_values.push("Engineer");
-//     }
-//     if ($('#dept5').is(':checked')) {
-//         dept_values.push("Others");
-//     }
-
-//     const obj = {
-//         Name: name,
-//         Notes: notes,
-//         Gender: gender ? 'male' : 'female',
-//         Department: dept_values,
-//         Salary: salary,
-//         Start_Date: date,
-//         Profile: profile
-//     };
-
-//     console.log(obj);
-// }
-
-// function getDate() {
-//     let day = $('#day').val();
-//     let month = $('#month').val();
-//     let year = $('#year').val();
-//     return `${day}/${month}/${year}`;
-// }
-
-// function getGender() {
-//     let male = $('#male').is(':checked');
-//     let female = $('#female').is(':checked');
-//     return male ? 'male' : (female ? 'female' : '');
-// }
-
-// function getProfile() {
-//     let selectedProfile = '';
-//     $('input[name=profile-pic]').each(function() {
-//         if ($(this).is(':checked')) {
-//             selectedProfile = $(this).attr('id');
-//             return false; // to break the loop once a selection is found
-//         }
-//     });
-//     return selectedProfile;
-// }
+document.addEventListener('click', function(event) {
+    if (event.target && event.target.id === 'update') {
+        event.preventDefault();
+        register_employee();
+        document.getElementById("Employee-Payroll").reset();
+        alert("Data Updated Successfully!");
+    }
+});

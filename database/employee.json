@@ -1,0 +1,41 @@
+{
+  "user": [
+    {
+      "Name": "Anish Gogna",
+      "Notes": "nm",
+      "Gender": "Male",
+      "Department": [
+        "HR"
+      ],
+      "Salary": "50000",
+      "Start_Date": "2/3/2020",
+      "Profile": "pic2",
+      "id": "b8d6"
+    },
+    {
+      "Name": "abhishek rajpal",
+      "Notes": "xws",
+      "Gender": "Male",
+      "Department": [
+        "Engineer"
+      ],
+      "Salary": "40000",
+      "Start_Date": "3/5/2022",
+      "Profile": "pic1",
+      "id": "1ad4"
+    },
+    {
+      "Name": "ari",
+      "Notes": " bg",
+      "Gender": "Female",
+      "Department": [
+        "HR",
+        "Sales"
+      ],
+      "Salary": "20000",
+      "Start_Date": "5/5/2023",
+      "Profile": "pic1",
+      "id": "49ca"
+    }
+  ]
+}

@@ -169,6 +169,16 @@ body {
     cursor: pointer;
 }
 
+#update{
+    height: 30px;
+    width: 340px;
+    margin-right: 10px;
+}
+
+#update:hover{
+    cursor: pointer;
+}
+
 #clear{
     height: 30px;
     width: 340px;

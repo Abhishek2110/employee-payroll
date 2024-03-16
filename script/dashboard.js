@@ -4,6 +4,28 @@ document.getElementById("add-button").addEventListener("click", function() {
 
 document.addEventListener('DOMContentLoaded', function() {
     
+    var searchInput = document.getElementById('search-button');
+    searchInput.addEventListener('input', function() {
+        var searchText = this.value.trim().toLowerCase(); 
+        var rows = document.querySelectorAll('#user-table tbody tr'); 
+
+        rows.forEach(function(row) {
+            var displayRow = false; 
+
+            row.querySelectorAll('td').forEach(function(cell) {
+                if (cell.textContent.toLowerCase().includes(searchText)) {
+                    displayRow = true; 
+                }
+            });
+
+            if (displayRow) {
+                row.style.display = '';
+            } else {
+                row.style.display = 'none';
+            }
+        });
+    });
+
     var xhr = new XMLHttpRequest();
     
     xhr.onreadystatechange = function() {
@@ -13,19 +35,26 @@ document.addEventListener('DOMContentLoaded', function() {
                 var data = JSON.parse(xhr.responseText);
                 
                 data.forEach(function(user) {
-                    var newRow = createTableRow(user); // Create a new row for each user
-                    userData.appendChild(newRow); // Append the new row to the table
+                    var newRow = createTableRow(user); 
+                    userData.appendChild(newRow); 
                 });
 
-                // Add event listeners for delete buttons
+                document.querySelectorAll('.edit').forEach(button => {
+                    button.addEventListener('click', function() {
+                        const row = this.closest('tr');
+                        const userId = row.dataset.userId;
+                        window.location.href = `../pages/form.html?id=${userId}`;
+                    });
+                });
+                
                 var deleteButtons = document.querySelectorAll('.delete');
                 deleteButtons.forEach(function(button) {
                     button.addEventListener('click', function() {
-                        var row = this.closest('tr'); // Find the closest row
-                        var userId = row.dataset.userId; // Extract the user ID or any unique identifier
+                        var row = this.closest('tr'); 
+                        var userId = row.dataset.userId; 
                         var confirmed = window.confirm("Are you sure you want to delete this user?");
                         if (confirmed) {
-                            deleteUser(userId, row); // Call the function to delete the user
+                            deleteUser(userId, row); 
                         }
                     });
                 });
@@ -41,10 +70,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
 function createTableRow(user) {
     const row = document.createElement('tr');
-    row.classList.add('user-row'); // Add a class to the row
-    row.dataset.userId = user.id; // Assign user ID to dataset
+    row.classList.add('user-row'); 
+    row.dataset.userId = user.id; 
 
-    // Determine the image source based on user profile
     let src;
     if (user.Profile == "pic1"){
         src = "../assets/option 1.jpg";
@@ -56,19 +84,15 @@ function createTableRow(user) {
         src = "../assets/option 4.jpg";
     }
 
-    // Check if user.Department is an array
     let departmentSpans = '';
     if (Array.isArray(user.Department)) {
-        // Create department spans
         user.Department.forEach(dept => {
             departmentSpans += `<span class="dept">${dept}</span>`;
         });
     } else {
-        // If user.Department is not an array, just use it as a single department
         departmentSpans = `<span class="dept">${user.Department}</span>`;
     }
 
-    // Fill in the cells with user data
     row.innerHTML = `
         <td><img src="${src}" alt="404" class="profile-pic" id="opt1"></td>
         <td><span class="employee-name">${user.Name}</span></td>
@@ -88,7 +112,6 @@ function deleteUser(userId, row) {
     xhr.onreadystatechange = function() {
         if (xhr.readyState === XMLHttpRequest.DONE) {
             if (xhr.status === 200) {
-                // Remove the row from the table
                 row.remove();
             } else {
                 console.error('Error deleting user:', xhr.status);
